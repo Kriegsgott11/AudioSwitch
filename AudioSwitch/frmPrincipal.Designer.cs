@@ -41,6 +41,7 @@
             this.ntfAudioSwitch = new System.Windows.Forms.NotifyIcon(this.components);
             this.cmsASMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnSaveFavList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.cmsASMenu.SuspendLayout();
@@ -94,6 +95,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BtnSaveFavList);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lstDevices);
             this.groupBox1.Controls.Add(this.chkStartAtStartUp);
@@ -152,14 +154,24 @@
             this.cmsASMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.cmsASMenu.Name = "cmsASMenu";
-            this.cmsASMenu.Size = new System.Drawing.Size(181, 48);
+            this.cmsASMenu.Size = new System.Drawing.Size(94, 26);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // BtnSaveFavList
+            // 
+            this.BtnSaveFavList.Location = new System.Drawing.Point(288, 56);
+            this.BtnSaveFavList.Name = "BtnSaveFavList";
+            this.BtnSaveFavList.Size = new System.Drawing.Size(49, 23);
+            this.BtnSaveFavList.TabIndex = 3;
+            this.BtnSaveFavList.Text = "Save";
+            this.BtnSaveFavList.UseVisualStyleBackColor = true;
+            this.BtnSaveFavList.Click += new System.EventHandler(this.BtnSaveFavList_Click);
             // 
             // frmPrincipal
             // 
@@ -201,6 +213,7 @@
         private System.Windows.Forms.NotifyIcon ntfAudioSwitch;
         private System.Windows.Forms.ContextMenuStrip cmsASMenu;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Button BtnSaveFavList;
     }
 }
 

@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AudioSwitch.Properties;
 using AudioSwitcher.AudioApi;
 using AudioSwitcher.AudioApi.CoreAudio;
 using Microsoft.Win32;
@@ -40,6 +41,7 @@ namespace AudioSwitch
 
             ChargeDevicesList();
 
+            chkStartAtStartUp.Checked = Settings.Default.StartWithWin;
             this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
         }
@@ -49,7 +51,7 @@ namespace AudioSwitch
         {
             var List = Controller.GetPlaybackDevices();
             string[] fav = GetDeviceList();
-
+            lstDevices.Items.Clear();
             foreach (CoreAudioDevice CAD in List)
             {
                 if (CAD.State == DeviceState.Active)
@@ -77,6 +79,7 @@ namespace AudioSwitch
             int c;
             CoreAudioDevice CAD;
             string[] fav = GetDeviceList();
+
             ChargeDevicesList();
 
             if (lstDevices.CheckedItems.Count == 0)
@@ -103,10 +106,10 @@ namespace AudioSwitch
 
                 }
 
-                if (c++ == lstDevices.CheckedItems.Count)
+                if (c + 1 == lstDevices.CheckedItems.Count)
                 {
-                    c = 0;
-                }    
+                    c = -1;
+                }
             }
         }
 
@@ -146,11 +149,13 @@ namespace AudioSwitch
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Settings.Default.StartWithWin = chkStartAtStartUp.Checked;
+            Settings.Default.Save();
             SaveDeviceList();
         }
 
         private void SetStartup()
-        {
+        {            
             RegistryKey rk = Registry.CurrentUser.OpenSubKey
                 ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
@@ -193,6 +198,11 @@ namespace AudioSwitch
             ntfAudioSwitch.BalloonTipTitle = "AudioSwitch";
 
             ntfAudioSwitch.ShowBalloonTip(5000);
+        }
+
+        private void BtnSaveFavList_Click(object sender, EventArgs e)
+        {
+            SaveDeviceList();
         }
     }
 }

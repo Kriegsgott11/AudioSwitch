@@ -19,7 +19,7 @@ namespace AudioSwitch
     {
         private CoreAudioDevice DefaultAudioDevice;
         private CoreAudioController Controller;
-
+        private int index;
         KeyboardHook hook = new KeyboardHook();
         public frmPrincipal()
         {
@@ -74,27 +74,39 @@ namespace AudioSwitch
 
         private void ChangeDevice()
         {
-
-            var List = Controller.GetPlaybackDevices();
+            int c;
+            CoreAudioDevice CAD;
             string[] fav = GetDeviceList();
+            ChargeDevicesList();
 
-            foreach (CoreAudioDevice CAD in List)
+            if (lstDevices.CheckedItems.Count == 0)
             {
-                if (CAD.State == DeviceState.Active && CAD.FullName != txtActualDevice.Text)
-                {
+                return;
+            }
 
+            for (c = index; c < lstDevices.CheckedItems.Count; c++)
+            {
+                CAD = (CoreAudioDevice)lstDevices.CheckedItems[c];
+                if (!CAD.IsDefaultDevice)
+                {
                     if (fav.Contains(CAD.Id.ToString()))
                     {
                         if (Controller.SetDefaultDevice(CAD))
                         {
                             DefaultAudioDevice = CAD;
                             txtActualDevice.Text = DefaultAudioDevice.FullName;
+                            index = c;
                             ShowNotification("Default device now is: " + DefaultAudioDevice.FullName);
                             return;
                         }
                     }
 
                 }
+
+                if (c++ == lstDevices.CheckedItems.Count)
+                {
+                    c = 0;
+                }    
             }
         }
 
@@ -104,7 +116,7 @@ namespace AudioSwitch
             {
                 this.Height = 480;
             }
-            else 
+            else
             {
                 this.Height = 260;
             }
@@ -179,7 +191,7 @@ namespace AudioSwitch
         {
             ntfAudioSwitch.BalloonTipText = msg;
             ntfAudioSwitch.BalloonTipTitle = "AudioSwitch";
-    
+
             ntfAudioSwitch.ShowBalloonTip(5000);
         }
     }

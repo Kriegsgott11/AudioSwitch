@@ -34,16 +34,16 @@
             this.BtnSettings = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chkStartAtStartUp = new System.Windows.Forms.CheckBox();
-            this.lstDevices = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lstDevices = new System.Windows.Forms.CheckedListBox();
+            this.chkStartAtStartUp = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtActualDevice
             // 
-            this.txtActualDevice.Location = new System.Drawing.Point(12, 111);
+            this.txtActualDevice.Location = new System.Drawing.Point(12, 106);
             this.txtActualDevice.Name = "txtActualDevice";
             this.txtActualDevice.ReadOnly = true;
             this.txtActualDevice.Size = new System.Drawing.Size(343, 20);
@@ -53,7 +53,7 @@
             // BtnChangeDevice
             // 
             this.BtnChangeDevice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.BtnChangeDevice.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnChangeDevice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnChangeDevice.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnChangeDevice.ForeColor = System.Drawing.Color.White;
             this.BtnChangeDevice.Location = new System.Drawing.Point(96, 146);
@@ -69,9 +69,9 @@
             this.BtnSettings.BackgroundImage = global::AudioSwitch.Properties.Resources.options1;
             this.BtnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSettings.Location = new System.Drawing.Point(325, 6);
+            this.BtnSettings.Location = new System.Drawing.Point(328, 6);
             this.BtnSettings.Name = "BtnSettings";
-            this.BtnSettings.Size = new System.Drawing.Size(36, 34);
+            this.BtnSettings.Size = new System.Drawing.Size(33, 34);
             this.BtnSettings.TabIndex = 3;
             this.BtnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnSettings.UseVisualStyleBackColor = true;
@@ -99,6 +99,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(6, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(152, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Select your favourite devices";
+            // 
+            // lstDevices
+            // 
+            this.lstDevices.FormattingEnabled = true;
+            this.lstDevices.Location = new System.Drawing.Point(6, 85);
+            this.lstDevices.Name = "lstDevices";
+            this.lstDevices.Size = new System.Drawing.Size(331, 94);
+            this.lstDevices.TabIndex = 1;
+            // 
             // chkStartAtStartUp
             // 
             this.chkStartAtStartUp.AutoSize = true;
@@ -112,32 +131,14 @@
             this.chkStartAtStartUp.TabIndex = 0;
             this.chkStartAtStartUp.Text = "Start at Windows start up";
             this.chkStartAtStartUp.UseVisualStyleBackColor = true;
-            // 
-            // lstDevices
-            // 
-            this.lstDevices.FormattingEnabled = true;
-            this.lstDevices.Location = new System.Drawing.Point(6, 85);
-            this.lstDevices.Name = "lstDevices";
-            this.lstDevices.Size = new System.Drawing.Size(331, 94);
-            this.lstDevices.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(6, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Select your favourite devices";
+            this.chkStartAtStartUp.CheckedChanged += new System.EventHandler(this.chkStartAtStartUp_CheckedChanged);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(367, 441);
+            this.ClientSize = new System.Drawing.Size(367, 221);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BtnSettings);
             this.Controls.Add(this.pictureBox1);

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AudioSwitcher.AudioApi;
 using AudioSwitcher.AudioApi.CoreAudio;
-
+using Microsoft.Win32;
 
 namespace AudioSwitch
 {
@@ -40,6 +40,7 @@ namespace AudioSwitch
 
             ChargeDevicesList();
 
+            this.WindowState = FormWindowState.Minimized;
         }
 
 
@@ -97,7 +98,14 @@ namespace AudioSwitch
 
         private void BtnSettings_Click(object sender, EventArgs e)
         {
-
+            if (this.Height == 260)
+            {
+                this.Height = 480;
+            }
+            else 
+            {
+                this.Height = 260;
+            }
         }
 
         private void SaveDeviceList()
@@ -125,6 +133,23 @@ namespace AudioSwitch
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveDeviceList();
+        }
+
+        private void SetStartup()
+        {
+            RegistryKey rk = Registry.CurrentUser.OpenSubKey
+                ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+            if (chkStartAtStartUp.Checked)
+                rk.SetValue(Application.ProductName, Application.ExecutablePath);
+            else
+                rk.DeleteValue(Application.ProductName, false);
+
+        }
+
+        private void chkStartAtStartUp_CheckedChanged(object sender, EventArgs e)
+        {
+            SetStartup();
         }
     }
 }

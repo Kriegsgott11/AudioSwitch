@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.txtActualDevice = new System.Windows.Forms.TextBox();
             this.BtnChangeDevice = new System.Windows.Forms.Button();
@@ -37,8 +38,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lstDevices = new System.Windows.Forms.CheckedListBox();
             this.chkStartAtStartUp = new System.Windows.Forms.CheckBox();
+            this.ntfAudioSwitch = new System.Windows.Forms.NotifyIcon(this.components);
+            this.cmsASMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.cmsASMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtActualDevice
@@ -133,6 +138,29 @@
             this.chkStartAtStartUp.UseVisualStyleBackColor = true;
             this.chkStartAtStartUp.CheckedChanged += new System.EventHandler(this.chkStartAtStartUp_CheckedChanged);
             // 
+            // ntfAudioSwitch
+            // 
+            this.ntfAudioSwitch.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ntfAudioSwitch.BalloonTipTitle = "AudioSwitch";
+            this.ntfAudioSwitch.ContextMenuStrip = this.cmsASMenu;
+            this.ntfAudioSwitch.Icon = ((System.Drawing.Icon)(resources.GetObject("ntfAudioSwitch.Icon")));
+            this.ntfAudioSwitch.Text = "AudioSwitch";
+            this.ntfAudioSwitch.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ntfAudioSwitch_MouseDoubleClick);
+            // 
+            // cmsASMenu
+            // 
+            this.cmsASMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.cmsASMenu.Name = "cmsASMenu";
+            this.cmsASMenu.Size = new System.Drawing.Size(181, 48);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,9 +178,11 @@
             this.Text = "AudioSwitch";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.frmPrincipal_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.cmsASMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +198,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox lstDevices;
         private System.Windows.Forms.CheckBox chkStartAtStartUp;
+        private System.Windows.Forms.NotifyIcon ntfAudioSwitch;
+        private System.Windows.Forms.ContextMenuStrip cmsASMenu;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

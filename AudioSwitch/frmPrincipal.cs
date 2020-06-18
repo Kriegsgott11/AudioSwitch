@@ -36,11 +36,12 @@ namespace AudioSwitch
         {
 
             DefaultAudioDevice = Controller.GetDefaultDevice(AudioSwitcher.AudioApi.DeviceType.Playback, Role.Multimedia);
-            txtActualDevice.Text = DefaultAudioDevice.Name;
+            txtActualDevice.Text = DefaultAudioDevice.FullName;
 
             ChargeDevicesList();
 
             this.WindowState = FormWindowState.Minimized;
+            this.ShowInTaskbar = false;
         }
 
 
@@ -79,7 +80,7 @@ namespace AudioSwitch
 
             foreach (CoreAudioDevice CAD in List)
             {
-                if (CAD.State == DeviceState.Active && CAD.Name != txtActualDevice.Text)
+                if (CAD.State == DeviceState.Active && CAD.FullName != txtActualDevice.Text)
                 {
 
                     if (fav.Contains(CAD.Id.ToString()))
@@ -87,7 +88,8 @@ namespace AudioSwitch
                         if (Controller.SetDefaultDevice(CAD))
                         {
                             DefaultAudioDevice = CAD;
-                            txtActualDevice.Text = DefaultAudioDevice.Name;
+                            txtActualDevice.Text = DefaultAudioDevice.FullName;
+                            ShowNotification("Default device now is: " + DefaultAudioDevice.FullName);
                             return;
                         }
                     }
@@ -150,6 +152,35 @@ namespace AudioSwitch
         private void chkStartAtStartUp_CheckedChanged(object sender, EventArgs e)
         {
             SetStartup();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmPrincipal_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                ntfAudioSwitch.Visible = true;
+            }
+        }
+
+        private void ntfAudioSwitch_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            ntfAudioSwitch.Visible = false;
+        }
+
+        private void ShowNotification(string msg)
+        {
+            ntfAudioSwitch.BalloonTipText = msg;
+            ntfAudioSwitch.BalloonTipTitle = "AudioSwitch";
+    
+            ntfAudioSwitch.ShowBalloonTip(5000);
         }
     }
 }

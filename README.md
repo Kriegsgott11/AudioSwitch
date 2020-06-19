@@ -1,5 +1,5 @@
 # AudioSwitch
-Switch between your favourite playback audio devices.
+Switch between your favourite audio playback devices.
 
 ## Libraries and complements
 * Audio Swicher

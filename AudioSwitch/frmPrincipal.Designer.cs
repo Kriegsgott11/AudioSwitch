@@ -42,6 +42,7 @@
             this.ntfAudioSwitch = new System.Windows.Forms.NotifyIcon(this.components);
             this.cmsASMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblHotKey = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.cmsASMenu.SuspendLayout();
@@ -62,7 +63,7 @@
             this.BtnChangeDevice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnChangeDevice.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnChangeDevice.ForeColor = System.Drawing.Color.White;
-            this.BtnChangeDevice.Location = new System.Drawing.Point(96, 146);
+            this.BtnChangeDevice.Location = new System.Drawing.Point(96, 143);
             this.BtnChangeDevice.Name = "BtnChangeDevice";
             this.BtnChangeDevice.Size = new System.Drawing.Size(175, 50);
             this.BtnChangeDevice.TabIndex = 1;
@@ -158,7 +159,6 @@
             this.ntfAudioSwitch.Icon = ((System.Drawing.Icon)(resources.GetObject("ntfAudioSwitch.Icon")));
             this.ntfAudioSwitch.Text = "AudioSwitch";
             this.ntfAudioSwitch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ntfAudioSwitch_MouseClick);
-            //this.ntfAudioSwitch.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ntfAudioSwitch_MouseDoubleClick);
             // 
             // cmsASMenu
             // 
@@ -174,12 +174,24 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // lblHotKey
+            // 
+            this.lblHotKey.AutoSize = true;
+            this.lblHotKey.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHotKey.ForeColor = System.Drawing.Color.White;
+            this.lblHotKey.Location = new System.Drawing.Point(147, 199);
+            this.lblHotKey.Name = "lblHotKey";
+            this.lblHotKey.Size = new System.Drawing.Size(79, 13);
+            this.lblHotKey.TabIndex = 6;
+            this.lblHotKey.Text = "Ctrl + Alt + F9";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(367, 221);
+            this.Controls.Add(this.lblHotKey);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BtnSettings);
             this.Controls.Add(this.pictureBox1);
@@ -215,6 +227,7 @@
         private System.Windows.Forms.ContextMenuStrip cmsASMenu;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Button BtnSaveFavList;
+        private System.Windows.Forms.Label lblHotKey;
     }
 }
 

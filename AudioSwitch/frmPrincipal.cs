@@ -185,13 +185,6 @@ namespace AudioSwitch
             }
         }
 
-        private void ntfAudioSwitch_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            Show();
-            this.WindowState = FormWindowState.Normal;
-            ntfAudioSwitch.Visible = false;
-        }
-
         private void ShowNotification(string msg)
         {
             ntfAudioSwitch.BalloonTipText = msg;
@@ -203,6 +196,13 @@ namespace AudioSwitch
         private void BtnSaveFavList_Click(object sender, EventArgs e)
         {
             SaveDeviceList();
+        }
+
+        private void ntfAudioSwitch_MouseClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            ntfAudioSwitch.Visible = false;
         }
     }
 }

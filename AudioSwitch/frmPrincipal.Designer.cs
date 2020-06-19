@@ -35,13 +35,13 @@
             this.BtnSettings = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnSaveFavList = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lstDevices = new System.Windows.Forms.CheckedListBox();
             this.chkStartAtStartUp = new System.Windows.Forms.CheckBox();
             this.ntfAudioSwitch = new System.Windows.Forms.NotifyIcon(this.components);
             this.cmsASMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BtnSaveFavList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.cmsASMenu.SuspendLayout();
@@ -106,6 +106,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
             // 
+            // BtnSaveFavList
+            // 
+            this.BtnSaveFavList.Location = new System.Drawing.Point(288, 56);
+            this.BtnSaveFavList.Name = "BtnSaveFavList";
+            this.BtnSaveFavList.Size = new System.Drawing.Size(49, 23);
+            this.BtnSaveFavList.TabIndex = 3;
+            this.BtnSaveFavList.Text = "Save";
+            this.BtnSaveFavList.UseVisualStyleBackColor = true;
+            this.BtnSaveFavList.Click += new System.EventHandler(this.BtnSaveFavList_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -147,7 +157,8 @@
             this.ntfAudioSwitch.ContextMenuStrip = this.cmsASMenu;
             this.ntfAudioSwitch.Icon = ((System.Drawing.Icon)(resources.GetObject("ntfAudioSwitch.Icon")));
             this.ntfAudioSwitch.Text = "AudioSwitch";
-            this.ntfAudioSwitch.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ntfAudioSwitch_MouseDoubleClick);
+            this.ntfAudioSwitch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ntfAudioSwitch_MouseClick);
+            //this.ntfAudioSwitch.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ntfAudioSwitch_MouseDoubleClick);
             // 
             // cmsASMenu
             // 
@@ -162,16 +173,6 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // BtnSaveFavList
-            // 
-            this.BtnSaveFavList.Location = new System.Drawing.Point(288, 56);
-            this.BtnSaveFavList.Name = "BtnSaveFavList";
-            this.BtnSaveFavList.Size = new System.Drawing.Size(49, 23);
-            this.BtnSaveFavList.TabIndex = 3;
-            this.BtnSaveFavList.Text = "Save";
-            this.BtnSaveFavList.UseVisualStyleBackColor = true;
-            this.BtnSaveFavList.Click += new System.EventHandler(this.BtnSaveFavList_Click);
             // 
             // frmPrincipal
             // 

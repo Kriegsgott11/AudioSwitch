@@ -87,6 +87,24 @@ namespace AudioSwitch
                 return;
             }
 
+            if (lstDevices.CheckedItems.Count == 1)
+            {
+                CAD = (CoreAudioDevice)lstDevices.CheckedItems[0];
+                if (!CAD.IsDefaultDevice)
+                {
+                    if (fav.Contains(CAD.Id.ToString()))
+                    {
+                        if (Controller.SetDefaultDevice(CAD))
+                        {
+                            DefaultAudioDevice = CAD;
+                            txtActualDevice.Text = DefaultAudioDevice.FullName;
+                            ShowNotification("Default device now is: " + DefaultAudioDevice.FullName);
+                        }
+                    }
+                }
+                return;
+            }
+
             for (c = index; c < lstDevices.CheckedItems.Count; c++)
             {
                 CAD = (CoreAudioDevice)lstDevices.CheckedItems[c];
